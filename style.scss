@@ -1,0 +1,128 @@
+$primary: #f582a0;
+$primary-light: #ffabc0;
+$secondary : #c183dc;
+$secondary-light: #c7abff;
+@font-face
+{
+font-family:Lato;
+ src:url("assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+body
+{
+    background-color: $primary;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.box
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0.7rem 0.7rem 0.5rem  #cc8899;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40vh;
+    border: 1px solid $primary;
+    border-radius: 30px;
+    background-color:$primary-light;
+    transition: transform;
+    &:hover 
+    {
+        background-color:$secondary-light;
+        border: 1px solid $secondary;
+        animation-name: rebound;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+    }
+    &-animation-reverse
+    {
+        animation-name: rebound-reverse;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+    }
+   
+    @keyframes rebound
+    {
+        0%
+        {transform:scale(1);}
+        50%
+        {transform: scale(0.95);}
+        75%
+        {transform: scale(0.97);}
+        100%
+        {transform: scale(0.95);}
+    }
+    @keyframes rebound-reverse
+    {
+        0%
+        {transform:scale(0.95);}
+        50%
+        {transform: scale(1);}
+        
+        100%
+        {transform: scale(0.97);}
+    }
+    &:hover .suit-left
+        {
+            transform: translate(-7rem, 0%);
+        }
+    &:hover .suit-right
+    {
+        transform: translate(7rem, 0%);
+    }
+    &-animation
+    {
+        width: 15vw;
+        height: 10vh;
+        background-image: url("assets/images/bed_icon.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+        padding-left: 3vw;
+        padding-right: 3vw;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        position: relative;
+        overflow: hidden;
+     
+        
+        .suit
+        {
+            &-left
+            {
+                position: absolute;
+                width: 5rem;
+                height: 5rem;
+                margin-top: 2rem;
+                right: -5rem;
+                transition: transform 500ms ease-in-out;
+            }
+            &-right
+            {
+                position: absolute;
+                width: 3rem;
+                height: 5rem;
+                margin-top: 1rem;
+                left: -5rem;
+                transition: transform 500ms ease-in-out;
+            }
+        }
+    }
+    &-reserve
+    {
+        background-color: #f5fafa;  
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 2rem; 
+        width: 100%;
+        p {
+            
+            text-align: center;
+        }
+    }
+    
+}
+
